@@ -3,7 +3,7 @@ description: "A fun pirate-themed text adventure game"
 author: "Lonnie Benniefield"
 url: "https://chooseyourownadventure.github.io"
 baseurl: ""  # Keep this empty for the root URL
-theme: "jekyll-theme-story"  # You can replace this with the theme of your choice
+theme: "minimal-mistakes"  # You can replace this with the theme of your choice
 
 # Optional: You can configure your site’s navigation here.
 menu:
