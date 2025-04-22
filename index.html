@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Treasure Island</title>
+  <style>
+    body {
+      background-color: #111;
+      color: #f8f8f8;
+      font-family: monospace;
+      padding: 2em;
+    }
+    button {
+      background: #444;
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      margin: 10px 5px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    button:hover {
+      background: #666;
+    }
+  </style>
+</head>
+<body>
+
+<h1>🏴‍☠️ Treasure Island</h1>
+<pre id="story"></pre>
+<div id="choices"></div>
+
+<script>
+const game = {
+  start: {
+    text: `Welcome to Treasure Island!\nYour mission is to find the treasure and celebrate like a legend.\nBut alas, you've arrived at a crossroad.`,
+    choices: [
+      { text: "Go left", next: "lake" },
+      { text: "Go right", next: "hole" }
+    ]
+  },
+  lake: {
+    text: `You come to a big lake. "That is one big lake," you mutter to yourself.`,
+    choices: [
+      { text: "Wait", next: "doors" },
+      { text: "Swim", next: "mermen" }
+    ]
+  },
+  doors: {
+    text: `You wait by the lake, and three magical doors appear in front of you.\nThey are labeled: "Pizza", "Cats", and "Space".`,
+    choices: [
+      { text: 'Enter "Pizza"', next: "win" },
+      { text: 'Enter "Cats"', next: "lose_doors" },
+      { text: 'Enter "Space"', next: "lose_doors" }
+    ]
+  },
+  mermen: {
+    text: `You dive in, only to be pulled under by mischievous mermen.\nThey tickle you mercilessly until you give up. YOU LOSE.`,
+    choices: []
+  },
+  hole: {
+    text: `You fall into a hole, break your leg, and no one comes to help. Rough day. YOU LOSE.`,
+    choices: []
+  },
+  win: {
+    text: `You step through the Pizza door and are greeted by a throne made of melted cheese and pepperoni.\nYou found the treasure and eternal happiness. YOU WIN! 🍕🎉`,
+    choices: []
+  },
+  lose_doors: {
+    text: `The gods are not pleased. Lightning strikes you down for your bad taste in doors. YOU LOSE.`,
+    choices: []
+  }
+};
+
+let current = 'start';
+
+function render() {
+  const scene = game[current];
+  document.getElementById('story').textContent = scene.text;
+  const choicesDiv = document.getElementById('choices');
+  choicesDiv.innerHTML = '';
+
+  scene.choices.forEach(choice => {
+    const btn = document.createElement('button');
+    btn.textContent = choice.text;
+    btn.onclick = () => {
+      current = choice.next;
+      render();
+    };
+    choicesDiv.appendChild(btn);
+  });
+}
+
+render();
+</script>
+
+</body>
+</html>
