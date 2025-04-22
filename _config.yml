@@ -1,0 +1,20 @@
+title: "Treasure Island Adventure"
+description: "A fun pirate-themed text adventure game"
+author: "Lonnie Benniefield"
+url: "https://chooseyourownadventure.github.io"
+baseurl: ""  # Keep this empty for the root URL
+theme: "jekyll-theme-story"  # You can replace this with the theme of your choice
+
+# Optional: You can configure your site’s navigation here.
+menu:
+  Home: /
+  Game: /index.html
+
+# Optional: Social links (for fun pirate flair, if you want)
+social_links:
+  github: "https://github.com/yourusername"
+  twitter: "https://twitter.com/yourhandle"
+
+# Optional: For SEO settings
+plugins:
+  - jekyll-seo-tag
